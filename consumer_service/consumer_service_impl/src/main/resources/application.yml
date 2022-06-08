@@ -1,0 +1,51 @@
+server:
+  port: 30000
+
+spring:
+  application:
+    name: consumer_service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: sjw123456
+    url: jdbc:mysql://127.0.0.1:3306/demo
+    hikari:
+      pool-name: ConsumerServiceHikari
+      connection-timeout: 5000
+      idle-timeout: 30000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      max-lifetime: 60000
+      auto-commit: true
+
+  cloud:
+    nacos:
+      discovery:
+        # 可以配置多个 逗号隔开
+        server-addr: localhost:8848,localhost:8948
+        # 默认就是application name 一般不用配置
+        service: consumer_service
+        # nacos客户端向服务端发送心跳的时间间隔 时间单位ms
+        heart-beat-interval: 5000
+        # 服务端没有接收到客户端心跳请求就将其设置为不健康的时间间隔 默认为15s
+        # 注意：推荐值为15s即可，如果有的业务线希望服务下线或者出故障时希望尽快被发现 可以适当减少该值
+        heart-beat-timeout: 15000
+        # 元数据部分 可以随便定制
+        metadata:
+          mydata: abc
+        # 客户端在启动时是否读取本地配置项来获取服务列表
+        # 注：推荐设置为false 若改为true 则客户端会在本地的一个文件中保存服务信息 当下次宕机启动时 会优先读取本地的配置对外提供服务
+        naming-load-cache-at-start: false
+        # 创建不同的集群
+        cluster-name: Cluster-A
+        # 命名空间
+        namespace: 78817752-c69d-4768-ab92-b0f005d48ff5
+        # 如果两个服务存在上下游调用关系 必须配置相同的group才能发起访问
+        group: myGroup
+        # 向注册中心注册服务 默认为true
+        # 如果只消费服务 不作为服务提供方 倒是可以设置成false 减少开销
+        register-enabled: true
+        # 类似长链接监听服务端信息变化的功能
+        watch:
+          enabled: true
+        watch-delay: 30000
