@@ -7,7 +7,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: sjw123456
+    password: root
     url: jdbc:mysql://127.0.0.1:3306/demo
     hikari:
       pool-name: ConsumerServiceHikari
@@ -39,7 +39,7 @@ spring:
         # 创建不同的集群
         cluster-name: Cluster-A
         # 命名空间
-        namespace: 78817752-c69d-4768-ab92-b0f005d48ff5
+        namespace: dev
         # 如果两个服务存在上下游调用关系 必须配置相同的group才能发起访问
         group: myGroup
         # 向注册中心注册服务 默认为true
