@@ -8,6 +8,6 @@ package com.sunjinwei.constant;
  **/
 public class ConsumerConstant {
 
-    public final static String TRAFFIC_VERSION = "traffic-version";
+    public final static String TRAFFIC_VERSION = "traffic_version";
 
 }

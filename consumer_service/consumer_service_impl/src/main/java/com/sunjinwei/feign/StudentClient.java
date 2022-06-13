@@ -1,8 +1,10 @@
 package com.sunjinwei.feign;
 
+import com.sunjinwei.constant.ConsumerConstant;
 import com.sunjinwei.entity.Student;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 /**
  * @program: com.sunjinwei.feign
@@ -14,5 +16,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface StudentClient {
 
     @GetMapping("/student")
-    Student queryStudent();
+    Student queryStudent(@RequestHeader(ConsumerConstant.TRAFFIC_VERSION) String trafficVersion);
 }

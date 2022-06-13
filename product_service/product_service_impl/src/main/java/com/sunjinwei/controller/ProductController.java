@@ -2,6 +2,7 @@ package com.sunjinwei.controller;
 
 import com.sunjinwei.entity.Student;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,9 @@ import java.util.Date;
 public class ProductController {
 
     @GetMapping("/student")
-    public Student queryStudent() {
+    public Student queryStudent(@RequestHeader("traffic_version") String trafficVersion) {
+
+        System.out.println(" header is===== " + trafficVersion);
 
         System.out.println("product addStudent invoke......");
         Student student = new Student();
