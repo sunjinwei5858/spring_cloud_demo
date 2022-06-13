@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @create: 2022-06-13 07:58
  * @description:
  **/
-@FeignClient(value = "product_service", path = "/product")
+@FeignClient(value = "product-service", path = "/product")
 public interface StudentClient {
 
     @GetMapping("/student")
-    public Student queryStudent();
+    Student queryStudent();
 }

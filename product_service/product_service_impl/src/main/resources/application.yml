@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: product_service
+    name: product-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -24,7 +24,7 @@ spring:
         # 可以配置多个 逗号隔开
         server-addr: localhost:8848,localhost:8948
         # 默认就是application name 一般不用配置
-        service: product_service
+        service: product-service
         # nacos客户端向服务端发送心跳的时间间隔 时间单位ms
         heart-beat-interval: 5000
         # 服务端没有接收到客户端心跳请求就将其设置为不健康的时间间隔 默认为15s
