@@ -24,6 +24,8 @@ import java.util.stream.Collectors;
  * @author: sun jinwei
  * @create: 2022-06-09 06:55
  * @description: 自定义负载均衡策略 可以单独拿出来作为一个公共组件
+ * CanaryRule 如何识别测试流量？
+ * CanaryRule 如何对测试流量做负载均衡
  **/
 @Slf4j
 public class CanaryRule implements ReactorServiceInstanceLoadBalancer {

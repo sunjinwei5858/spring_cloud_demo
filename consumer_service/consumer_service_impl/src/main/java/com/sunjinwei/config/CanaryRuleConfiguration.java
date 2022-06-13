@@ -13,7 +13,8 @@ import org.springframework.core.env.Environment;
  * @create: 2022-06-09 06:54
  * @description:
  **/
-// 注意这里不要写上@Configuration注解
+// 注意这里不要写上@Configuration注解 因为不需要应用到全局
+// 在启动类将@LoadBalancerClient注解和配置类和服务进行关联起来
 public class CanaryRuleConfiguration {
 
     @Bean
