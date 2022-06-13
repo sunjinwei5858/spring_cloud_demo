@@ -1,8 +1,8 @@
 package com.sunjinwei.config;
 
+import com.alibaba.nacos.common.utils.StringUtils;
 import com.sunjinwei.constant.ConsumerConstant;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.*;

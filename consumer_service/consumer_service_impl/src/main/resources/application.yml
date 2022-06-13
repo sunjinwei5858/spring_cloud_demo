@@ -49,3 +49,6 @@ spring:
         watch:
           enabled: true
         watch-delay: 30000
+logging:
+  level:
+    com.sunjinwei: debug

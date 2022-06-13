@@ -18,16 +18,26 @@
 
     <dependencies>
 
-        <!-- Nacos服务发现 -->
+        <!-- Nacos服务发现组件 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- Spring Cloud御用负载均衡组件Loadbalancer -->
+        <!-- 负载均衡组件 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <!-- webflux服务调用 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!-- openfeign组件 -->
@@ -35,7 +45,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
         <!-- hystrix组件，专门用来演示openfeign降级 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -50,16 +59,6 @@
             </exclusions>
         </dependency>
 
-        <!-- 响应式编程的Webflux组件，提供了异步化的非阻塞功能 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.sunjinwei</groupId>
