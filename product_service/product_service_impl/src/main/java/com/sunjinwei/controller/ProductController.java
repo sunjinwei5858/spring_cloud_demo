@@ -27,7 +27,7 @@ public class ProductController {
         Student student = new Student();
         student.setId(1111L);
         student.setStudentName("alex");
-        student.setStudentDesc("hhhhh");
+        student.setStudentDesc(trafficVersion);
         student.setStudentAge(20);
         student.setCreateTime(new Date());
         student.setUpdateTime(new Date());

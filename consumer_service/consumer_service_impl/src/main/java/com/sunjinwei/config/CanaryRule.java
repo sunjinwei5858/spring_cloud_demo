@@ -15,6 +15,7 @@ import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -76,6 +77,14 @@ public class CanaryRule implements ReactorServiceInstanceLoadBalancer {
         HttpHeaders headers = requestData.getHeaders();
         String trafficVersion = headers.getFirst(ConsumerConstant.TRAFFIC_VERSION);
 
+
+        // 通过元数据可以获取 集群的信息
+        serviceInstances.stream().forEach(it -> {
+            Map<String, String> metadata = it.getMetadata();
+            String clusterName = metadata.get("nacos.cluster");
+            System.out.println("======" + clusterName);
+        });
+
         // 如果没有找到打标标记或者为空 则使用RoundRobin规则进行轮训
         if (StringUtils.isBlank(trafficVersion)) {
             // 过滤掉所有金丝雀测试的节点 Medata有值的节点
@@ -104,6 +113,7 @@ public class CanaryRule implements ReactorServiceInstanceLoadBalancer {
     private Response<ServiceInstance> getRoundRobinInstance(List<ServiceInstance> instances) {
         // 如果没有可用节点 则返回空
         if (instances.isEmpty()) {
+            log.info("instance is empty....");
             return new EmptyResponse();
         }
         int pos = Math.abs(this.position.incrementAndGet());

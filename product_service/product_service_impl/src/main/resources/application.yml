@@ -1,5 +1,5 @@
 server:
-  port: 20000
+  port: 20002
 
 spring:
   application:
@@ -37,7 +37,7 @@ spring:
         # 注：推荐设置为false 若改为true 则客户端会在本地的一个文件中保存服务信息 当下次宕机启动时 会优先读取本地的配置对外提供服务
         naming-load-cache-at-start: false
         # 创建不同的集群
-        cluster-name: Cluster-A
+        cluster-name: Cluster-c
         # 命名空间
         namespace: dev
         # 如果两个服务存在上下游调用关系 必须配置相同的group才能发起访问
